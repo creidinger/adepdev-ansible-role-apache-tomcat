@@ -3,16 +3,42 @@
 # note this is version 9
 # source: https://tomcat.apache.org/tomcat-9.0-doc/building.html
 
+- debug:
+    msg: Java install prep
+
 # https://stackoverflow.com/questions/32942023/ubuntu-openjdk-8-unable-to-locate-package
+- name: Get commont software properties
+  package:
+    pkg: "{{ item }}"
+    state: present
+  loop:
+    - software-properties-common
+
+- name: Update all packages to the latest version
+  apt:
+    upgrade: dist
+
+- name: Remove useless packages from the cache
+    apt:
+      autoclean: yes
+
+- name: Remove dependencies that are no longer required
+    apt:
+      autoremove: yes
+
+- name: Add Java apt_repository
+      apt_repository:
+        repo: ppa:webupd8team/java
+        state: present
+
 - name: Install Java
   package:
     pkg: "{{ item }}"
     state: present
   loop:
-    # - openjdk-8-jdk
-    # - openjdk-8-doc
-    # - openjdk-8-jre-lib
     - oracle-java8-installer
+
+
 
 # https://ant.apache.org/
 # srouce: https://websiteforstudents.com/how-to-install-apache-ant-on-ubuntu-18-04-16-04/
