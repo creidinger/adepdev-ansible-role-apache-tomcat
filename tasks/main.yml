@@ -54,6 +54,11 @@
     src: tomcat-users.xml.j2
     dest: /opt/tomcat/conf/tomcat-users.xml
 
+- name: Set context for remote allow of tomcat admin
+  template:
+    src: context.xml.j2
+    dest: /opt/tomcat/webapps/manager/META-INF/context.xml
+
 # https://linuxconfig.org/how-to-create-systemd-service-unit-in-linux
 - name: Copy minio.service file to /etc/systemd/system
   template:
