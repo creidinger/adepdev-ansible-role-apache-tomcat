@@ -45,7 +45,6 @@
   unarchive:
     src: /opt/apache-tomcat-9.0.35.tar.gz
     dest: /opt/tomcat
-    remote_src: yes
 
 # config
 
