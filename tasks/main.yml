@@ -33,7 +33,7 @@
   get_url:
     url: https://mirrors.ocf.berkeley.edu/apache/tomcat/tomcat-9/v9.0.35/bin/apache-tomcat-9.0.35.tar.gz
     dest: /opt/apache-tomcat-9.0.35.tar.gz
-    checksum: 0db27185d9fc3174f2c670f814df3dda8a008b89d1a38a5d96cbbe119767ebfb1cf0bce956b27954aee9be19c4a7b91f2579d967932207976322033a86075f98
+    checksum: sha512:0db27185d9fc3174f2c670f814df3dda8a008b89d1a38a5d96cbbe119767ebfb1cf0bce956b27954aee9be19c4a7b91f2579d967932207976322033a86075f98
 
 # config
 
