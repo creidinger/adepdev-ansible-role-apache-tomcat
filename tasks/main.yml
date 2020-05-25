@@ -49,6 +49,11 @@
     extra_opts: [--strip-components=1]
     owner: "{{ tomcat_user }}"
 
+- name: Set Tomcat Admin user & password
+  file:
+    src: tomcat-users.xml.j2
+    dest: /opt/tomcat/conf/tomcat-users.xml
+
 # https://linuxconfig.org/how-to-create-systemd-service-unit-in-linux
 - name: Copy minio.service file to /etc/systemd/system
   template:
