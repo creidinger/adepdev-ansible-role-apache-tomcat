@@ -35,6 +35,12 @@
     dest: /opt/apache-tomcat-9.0.35.tar.gz
     checksum: sha512:0db27185d9fc3174f2c670f814df3dda8a008b89d1a38a5d96cbbe119767ebfb1cf0bce956b27954aee9be19c4a7b91f2579d967932207976322033a86075f98
 
+- name: Make tomcat directory
+  file:
+    path: /opt/tomcat
+    state: directory
+    mode: 0777
+
 - name: Extract apache-tomcat-9.0.35.tar.gz to /top/tomcat
   unarchive:
     src: /opt/apache-tomcat-9.0.35.tar.gz
