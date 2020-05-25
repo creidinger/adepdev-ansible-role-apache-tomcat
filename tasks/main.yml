@@ -50,7 +50,7 @@
     owner: "{{ tomcat_user }}"
 
 - name: Set Tomcat Admin user & password
-  file:
+  template:
     src: tomcat-users.xml.j2
     dest: /opt/tomcat/conf/tomcat-users.xml
 
