@@ -50,6 +50,13 @@
     owner: "{{ tomcat_user }}"
 
 
-# config
-
-# Build Tomcat
+# Used to allow autostart of service on pi
+# Now you no longer have to run this command.
+# sudo systemctl enable myscript.service
+- name: Allow apache-tomcat.service autostart by createing a symbolic link
+  file:
+    src: /etc/systemd/system/apache-tomcat.service
+    dest: /etc/systemd/system/multi-user.target.wants/apache-tomcat.service
+    owner: root
+    group: root
+    state: link

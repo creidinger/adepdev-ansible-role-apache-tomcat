@@ -1,0 +1,44 @@
+[Unit]
+Description=Apache Tomcat Servlet Container
+Documentation=https://tomcat.apache.org/
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+PermissionsStartOnly=true
+
+# User=tomcat
+# Group=tomcat
+Type=forking
+
+ExecStart=/opt/tomcat/bin/startup.sh
+ExecStop=/opt/tomcat/bin/shutdown.sh
+
+# restart settings
+StartLimitBurst=5
+StartLimitIntervalSec=10
+RestartSec=3
+Restart=always
+
+Environment=CATALINA_PID=/opt/tomcat/tomcat.pid
+Environment=CATALINA_HOME=/opt/tomcat
+Environment=CATALINA_BASE=/opt/tomcat
+
+StandardOutput=journal
+StandardError=inherit
+
+# Specifies the maximum file descriptor number that can be opened by this process
+LimitNOFILE=65536
+
+# Disable timeout logic and wait until process is stopped
+TimeoutStopSec=0
+
+# SIGTERM signal is used to stop Minio
+KillSignal=SIGTERM
+
+SendSIGKILL=no
+
+SuccessExitStatus=0
+
+[Install]
+WantedBy=multi-user.target
