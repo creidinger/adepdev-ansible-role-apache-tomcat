@@ -1,6 +1,4 @@
 ---
 tomcat_port: 8080
 tomcat_user: vagrant
-
-tomcat_user: admin
 tomcat_password: tomcat
