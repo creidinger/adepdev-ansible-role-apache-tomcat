@@ -49,6 +49,11 @@
     extra_opts: [--strip-components=1]
     owner: "{{ tomcat_user }}"
 
+# https://linuxconfig.org/how-to-create-systemd-service-unit-in-linux
+- name: Copy minio.service file to /etc/systemd/system
+  template:
+    src: apache-tomcat.service.j2
+    dest: /etc/systemd/system/apache-tomcat.service
 
 # Used to allow autostart of service on pi
 # Now you no longer have to run this command.
