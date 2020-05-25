@@ -1,0 +1,25 @@
+---
+# Tomcat install documentation can be found here.
+# note this is version 9
+# source: https://tomcat.apache.org/tomcat-9.0-doc/building.html
+- name: Install Java
+  package:
+    pkg: "{{ item }}"
+    state: present
+  loop:
+    - openjdk-8-jdk
+    - openjdk-8-doc
+    - openjdk-8-jre-lib
+
+# https://ant.apache.org/
+# srouce: https://websiteforstudents.com/how-to-install-apache-ant-on-ubuntu-18-04-16-04/
+- name: Install Apache Ant
+  package:
+    pkg: "ant"
+    state: present
+
+# download Tomcat source
+
+# config
+
+# Build Tomcat
