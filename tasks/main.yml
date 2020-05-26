@@ -76,5 +76,5 @@
     group: root
     state: link
 
-- name: start minio service
+- name: start apache-tomcat service
   command: systemctl start apache-tomcat.service
